@@ -1,0 +1,18 @@
+.VisitaDetailCover{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 30vh;
+    background-color: rgb(230, 222, 222);
+}
+
+.VisitaDetailCover-img{
+    width: 100px;
+}
+
+.UserDetailCover-name{
+    font-size: 1.5em;
+    font-family: 'Montserrat', sans-serif;
+}
