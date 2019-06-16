@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getVisitas } from '../actions';
 import VisitaItem from '../components/VisitaItem';
-import { DotLoader } from 'react-spinners';
 import 'materialize-css/dist/css/materialize.min.css';
 import Navbar from '../components/Navbar'
+import ModalVisita from '../components/ModalVisita'
 
 
 function mapStateToPropos(state){
@@ -41,15 +41,6 @@ class Home extends Component {
                 );
             })
         }
-        if(this.props.visitas.type === "START_GET_VISITAS"){
-            return(
-                <div className="Home-preLoader">
-                    <DotLoader
-                    color="#FFF"
-                    loading= {true}/>
-                </div>
-            )
-        }
 
         return (
             <div>
@@ -58,6 +49,9 @@ class Home extends Component {
                     <div className="row">
                         <div className="col s12 m5 l9">
                             {visitas}
+                        </div>
+                        <div className="col s12 m4 l2">
+                            <ModalVisita/>
                         </div>
                     </div>
                    

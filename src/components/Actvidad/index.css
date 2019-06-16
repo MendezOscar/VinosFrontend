@@ -1,4 +1,9 @@
-.VisitaDetailCover{
+.UserDetailCover-name{
+    font-size: 1.5em;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.ActividadDetailCover {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,16 +13,11 @@
     background-color: rgb(230, 222, 222);
 }
 
-.VisitaDetailCover-img{
+.ActividadDetailCover-img{
     width: 100px;
 }
 
-.UserDetailCover-name{
-    font-size: 1.5em;
-    font-family: 'Montserrat', sans-serif;
-}
-
 .modal {
-    width: 90% !important ; 
-    height: 90% !important ; 
+    width: 80% !important ; 
+    height: 70% !important ; 
 }

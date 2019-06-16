@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getVisitaById } from '../actions'
 import VisitaDetailCover from '../components/VisitaDetailCover'
-//import VisitaDetailBody from '../components/VisitaDetailBody'
+import VisitaDetailBody from '../components/VisitaDetailBody'
 
 function mapStateToPropos(state){
     return {
@@ -26,11 +26,16 @@ class VisitaDetail extends Component {
     
     render() {
         if(this.props.visitaDetail.data){
-            const { titulo } = this.props.visitaDetail.data;
+            const { titulo, descripcion, fecha, numero } = this.props.visitaDetail.data;
             return(
                 <div>
                     <Navbar/>
                     <VisitaDetailCover titulo = { titulo }/>
+                    <VisitaDetailBody 
+                     descripcion = { descripcion }
+                     fecha = { fecha }
+                     numero = { numero }
+                    />
                 </div>
             );
         }

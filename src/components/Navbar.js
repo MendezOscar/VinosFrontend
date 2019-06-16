@@ -10,8 +10,15 @@ class Navbar extends Component {
                     <a href="/Home" className="brand-logo right">Vinos</a>
                     <ul id="nav-mobile" className="left hide-on-med-and-down">
                         <li><a href="/Home">Home</a></li>
-                        <li><a href="/ordenes-de-produccion">Ordenes de produccion</a></li>
-                        <li><a href="/ventas">Ventas</a></li>
+                        <li><a href="/Actividades">Actividades</a></li>
+                        <li><a href="/Empleado">Empleado</a></li>
+                        <li><a href="/Finca">Finca</a></li>
+                        <li><a href="/Inventario">Inventario</a></li>
+                        <li><a href="/Materia-prima">Materia prima</a></li>
+                        <li><a href="/Orden-produccion">Orden de produccion</a></li>
+                        <li><a href="/Producto">Producto</a></li>
+                        <li><a href="/Proveedor">Proveedor</a></li>
+                        <li><a href="/Reportes">Reportes</a></li>
                     </ul>
                     </div>
                 </nav>

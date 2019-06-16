@@ -26,21 +26,19 @@ class VisitaItem extends Component {
         }
         return (
             <div>
-                <div className="row">
-                    <div className="col s12 m4">
+                <div className="col s6 m4">
                     <div className="card blue-grey darken-1">
-                        <div className="card-content white-text">
-                        <span className="card-title">{titulo}</span>
-                        <p align="left"> {descripcion}
-                        </p>
-                        <p align="left"> Fecha de visita : {fecha.substring(0,10)}</p>
-                        <p align="left"> Numero de visita: {numero}</p>
-                        </div>
-                        <div className="card-action">
-                        <a onClick={ this.onClick }>Ver detalle</a>
-                        </div>
+                    <div className="card-content white-text">
+                    <span className="card-title">{titulo}</span>
+                    <p align="left"> {descripcion}
+                    </p>
+                    <p align="left"> Fecha de visita : {fecha.substring(0,10)}</p>
+                    <p align="left"> Numero de visita: {numero}</p>
                     </div>
+                    <div className="card-action">
+                    <a onClick={ this.onClick }>Ver detalle</a>
                     </div>
+                </div>
                 </div>
             </div>
         );

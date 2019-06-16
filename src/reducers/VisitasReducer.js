@@ -17,7 +17,7 @@ export const getVisitaById = ( state = [], action) => {
             return action;
         case 'COMPLETE_GET_VISITA_BY_ID':
             return action;
-        case 'ERROR_GET_VISTA_BY_ID':
+        case 'ERROR_GET_VISITA_BY_ID':
             return action;
         default:
             return state;
