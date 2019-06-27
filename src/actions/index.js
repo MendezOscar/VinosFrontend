@@ -15,7 +15,7 @@ const errorPostVisitaById = (err) => { return { type: 'ERROR_POST_VISITA_BY_ID',
 export const getVisitas = () => {
     return ( dispatch ) => {
         dispatch(startGetVisitas());
-        http.get('/api/visitahdr').then((response)=>{
+        http.get('/api/visita').then((response)=>{
             if(response.data){
                 dispatch(completeGetVisitas(response.data));
             }
@@ -30,7 +30,7 @@ export const getVisitas = () => {
 export const getVisitaById = ( visita ) => {
     return ( dispatch ) => {
         dispatch(startGetVisitaById());
-        http.get('/api/Visitahdr/' + visita ).then((response)=>{
+        http.get('/api/Visita/' + visita ).then((response)=>{
             if(response.data){
                 console.log(response.data);
                 dispatch(completeGetVisitaById(response.data));

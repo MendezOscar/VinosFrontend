@@ -11,7 +11,7 @@ const errorPostActividades = (err) => { return { type: 'ERROR_POST_ACTIVIDAD', e
 export const getActividades = () => {
     return ( dispatch ) => {
         dispatch(startGetActividades());
-        http.get('/api/Actividades').then((response)=>{
+        http.get('/api/actividades').then((response)=>{
             if(response.data){
                 dispatch(completeGetActividades(response.data));
             }
