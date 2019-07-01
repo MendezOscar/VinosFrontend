@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Navbar from  '../components/Navbar'
+import Navbar from '../components/NavBar/Navbar'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getVisitaById } from '../actions'
-import VisitaDetailCover from '../components/VisitaDetailCover'
-import VisitaDetailBody from '../components/VisitaDetailBody'
+import VisitaDetailCover from '../components/Visita/VisitaDetailCover'
+import VisitaDetailBody from '../components/Visita/VisitaDetailBody'
 
 function mapStateToPropos(state){
     return {

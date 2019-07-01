@@ -1,5 +1,5 @@
-export const getActividades = ( state = [], action) => {
-    switch(action.type){
+export const getActividades = (state = [], action) => {
+    switch (action.type) {
         case 'START_GET_ACTIVIDADES':
             return action;
         case 'COMPLETE_GET_ACTIVIDADES':
@@ -11,8 +11,8 @@ export const getActividades = ( state = [], action) => {
     }
 }
 
-export const postActividad = ( state = [], action) => {
-    switch(action.type){
+export const postActividad = (state = [], action) => {
+    switch (action.type) {
         case 'START_POST_ACTIVIDAD':
             return action;
         case 'COMPLETE_POST_ACTIVIDAD':

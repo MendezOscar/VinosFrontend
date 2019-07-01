@@ -18,6 +18,10 @@
 }
 
 .modal {
-    width: 80% !important ; 
-    height: 70% !important ; 
+    width: 70% !important ; 
+    height:70% !important ; 
+}
+
+.Descripcion-Actividad{
+    text-align: left;
 }

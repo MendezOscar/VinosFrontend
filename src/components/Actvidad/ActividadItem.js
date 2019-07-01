@@ -2,17 +2,18 @@ import React, { Component } from 'react';
 
 class ActividadItem extends Component {
     render() {
-        const {id, descripcion, numerodevisita} = this.props;
+        const { id, descripcion, numerodevisita } = this.props;
         return (
             <div>
-                <table>
+                <table className="striped">
                     <tbody>
-                        <td>{id}</td>
-                        <td>{descripcion}</td>
-                        <td>{numerodevisita}</td>
+                        <tr>
+                            <td className="left">{id}</td>
+                            <td className="left">{descripcion}</td>
+                            <td className="right">{numerodevisita}</td>
+                        </tr>
                     </tbody>
                 </table>
-                
             </div>
         );
     }

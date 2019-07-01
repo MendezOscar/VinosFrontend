@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getVisitas } from '../actions';
-import VisitaItem from '../components/VisitaItem';
+import VisitaItem from '../components/Visita/VisitaItem';
 import 'materialize-css/dist/css/materialize.min.css';
-import Navbar from '../components/Navbar'
-import ModalVisita from '../components/ModalVisita'
+import Navbar from '../components/NavBar/Navbar'
+import ModalVisita from '../components/Visita/ModalVisita'
 
 
 function mapStateToPropos(state){
