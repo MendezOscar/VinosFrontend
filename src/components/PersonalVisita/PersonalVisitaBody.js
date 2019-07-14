@@ -1,35 +1,33 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getProveedores } from '../../actions/Proveedor';
+import { getPersonalVisita } from '../../actions/PersonalVisita';
 
 function mapStateToPropos(state) {
     return {
-        proveedores: state.getProveedores
+        personalvisita: state.getPersonalVisita
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        getProveedores
+        getPersonalVisita
     }, dispatch)
 }
 
-class ProveedorBody extends Component {
+class PersonalVisitaBody extends Component {
 
     componentWillMount() {
-        this.props.getProveedores();
+        this.props.getPersonalVisita();
     }
 
     render() {
-        let proveedores = [];
-        if (this.props.proveedores.data) {
-            proveedores = this.props.proveedores.data.map((currentValue, index, array) => {
+        let personalVisita = [];
+        if (this.props.personalvisita.data) {
+            personalVisita = this.props.personalvisita.data.map((currentValue, index, array) => {
                 return (
                     <tr key={index} bgcolor="#ffffff">
-                        <td>{currentValue.idproveedor}</td>
-                        <td className="">{currentValue.nombre}</td>
-                        <td className="">{currentValue.contacto}</td>
+                        <td className="">{currentValue.idempleado}</td>
                         <td>
                             <div className="btn-group" role="group">
                                 <button type="button" className="btn btn-info">
@@ -46,20 +44,18 @@ class ProveedorBody extends Component {
         }
         return (
             <div>
-                <table className="table table-hover">
-                    <thead className="theadColor">
-                        <tr>
-                            <th scope="col">Codigo</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Contacto</th>
-                            <th scope="col">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {proveedores}
-                    </tbody>
-                </table>
-            </div>
+            <table className="table table-hover">
+                <thead className="theadColor">
+                    <tr>
+                        <th scope="col">Personal</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {personalVisita}
+                </tbody>
+            </table>
+        </div>
         );
     }
 }
@@ -67,4 +63,4 @@ class ProveedorBody extends Component {
 export default connect(
     mapStateToPropos,
     mapDispatchToProps
-)(ProveedorBody);
+)(PersonalVisitaBody);

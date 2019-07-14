@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
-import M from "materialize-css";
-import "materialize-css/dist/css/materialize.min.css";
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { postActividad } from '../../actions/Actividad'
+import ActividadCover from '../Actvidad/ActividadCover'
+import Navbar from '../NavBar/Navbar'
 import { Redirect } from 'react-router';
 
-function mapStateToPropos(state) {
-  return {
-    visitaDetail: state.getVisitaById
-  }
-}
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
@@ -28,12 +23,15 @@ class ActividadPost extends Component {
     this.onClick = this.onClick.bind(this);
   }
 
+  onClick(e) {
+    this.setState({ isRedirected: true });
+  }
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    const codigo = this.getId.value;
-    const descripcion = this.getDescripcion.value;
-    const numero = this.getNumerovisita.value;
+  submitFormHandler = event => {
+    event.preventDefault();
+    const codigo = this.refs.codigo.value;
+    const descripcion = this.refs.descripcion.value;
+    const numero = this.refs.numero.value;
     const actividad = {
       codigo,
       descripcion,
@@ -42,91 +40,44 @@ class ActividadPost extends Component {
     this.props.postActividad(actividad);
   }
 
-  componentDidMount() {
-    const options = {
-      onOpenStart: () => {
-        console.log("Open Start");
-      },
-      onOpenEnd: () => {
-        console.log("Open End");
-      },
-      onCloseStart: () => {
-        console.log("Close Start");
-      },
-      onCloseEnd: () => {
-        console.log("Close End");
-      },
-      inDuration: 250,
-      outDuration: 250,
-      opacity: 0.5,
-      dismissible: false,
-      startingTop: "4%",
-      endingTop: "10%"
-    };
-    M.Modal.init(this.Modal, options);
-    var elems = document.querySelectorAll('select');
-    M.FormSelect.init(elems, options);
-  }
-
-  onClick(e) {
-    this.setState({ isRedirected: true });
-  }
-
   render() {
     if (this.state.isRedirected) {
       return (
-        <Redirect to={"/Actividades"} />
+        <Redirect to={"/actividades"} />
       );
     }
     return (
       <div>
-        <div className="row">
-          <div className="col s2 offset-s12">
-            <a className="btn modal-trigger btn-floating btn-large red" data-target="modal1" href="/modalvisita"><i className="material-icons">add</i></a>
-          </div>
-        </div>
+        <Navbar />
+        <ActividadCover />
+        <br />
+        <div className="container">
+          <form>
+            <div className="form-group">
+              <label className="left">Codigo</label>
+              <input type="text" className="form-control" ref="codigo" placeholder="Codigo" />
+            </div>
 
-        <div ref={Modal => { this.Modal = Modal; }} id="modal1" className="modal modal-fixed-footer">
-          <div className="modal-content">
-            <form onSubmit={this.handleSubmit}>
-              <h5>Crear nueva actividad</h5>
 
-              <div className="row">
-                <div div className="input-field col s4">
-                  <input required type="text" ref={(input) => this.getId = input}
-                    placeholder="Codigo" className="col " />
-                </div>
-                <div className="input-field col s6">
-                  <select ref={(input) => this.getNumerovisita = input} >
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                  </select>
-                  <label>Numero de visita</label>
-                </div>
+            <div className="form-group">
+              <label className="left">Descripcion</label>
+              <textarea className="form-control" ref="descripcion" rows="3"></textarea>
+            </div>
 
-              </div>
+            <div className="form-group">
+              <label className="left">Numero de visita</label>
+              <select className="form-control" ref="numero">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+            </div>
+            <div>
+              <button onClick={this.onClick} className="btn btn-secondary">Volver</button>
+              <button onClick={this.submitFormHandler} type="submit" className="btn btn-primary">Guardar</button>
+            </div>
 
-              <div className="row">
-                <div className="input-field col s12">
-                  <textarea id="image_description" type="text" class="materialize-textarea validate" ref={(input) => this.getDescripcion = input} ></textarea>
-                  <label for="image_description">Description</label>
-                </div>
-              </div>
-
-              <div className="row">
-
-              </div>
-              <div className="row">
-                <div>
-                  <button className="btn waves-effect waves-light" href="/Actividades">Guardar</button>
-                </div>
-              </div>
-            </form>
-          </div>
-          <div className="modal-footer">
-            <a className="modal-close btn-flat" href="/Actividades">Cancelar</a>
-          </div>
+          </form>
         </div>
       </div>
     );
@@ -134,6 +85,6 @@ class ActividadPost extends Component {
 }
 
 export default connect(
-  mapStateToPropos,
+  null,
   mapDispatchToProps
 )(ActividadPost);

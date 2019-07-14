@@ -26,7 +26,7 @@ class VisitaDetail extends Component {
     
     render() {
         if(this.props.visitaDetail.data){
-            const { titulo, descripcion, fecha, numero } = this.props.visitaDetail.data;
+            const { titulo, descripcion, fecha, numero, idfinca, idvisita } = this.props.visitaDetail.data;
             return(
                 <div>
                     <Navbar/>
@@ -35,6 +35,8 @@ class VisitaDetail extends Component {
                      descripcion = { descripcion }
                      fecha = { fecha }
                      numero = { numero }
+                     idfinca = { idfinca }
+                     idvisita = { idvisita }
                     />
                 </div>
             );

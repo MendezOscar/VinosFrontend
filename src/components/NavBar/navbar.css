@@ -1,3 +1,11 @@
-.nav{
-    background-color: #e06d6d;
+.navbar-expand-lg{
+    background-color: lightcoral;
+}
+
+.nav-link{
+    color: white;
+}
+
+.navbar-brand{
+    color: white;
 }

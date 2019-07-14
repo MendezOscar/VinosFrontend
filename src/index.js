@@ -5,12 +5,12 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import createHistory  from 'history/createBrowserHistory';
+import { createBrowserHistory } from 'history'
 import { routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
 import reducers from './reducers';
 
-const history = createHistory();
+const history = createBrowserHistory();
 const middleware = [ routerMiddleware(history), thunk];
 
 const store = createStore(

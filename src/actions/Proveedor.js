@@ -28,7 +28,7 @@ export const postProveedor = (Proveedor) => {
         dispatch(startPostProveedor());
         http.post('/api/Proveedor',
             {
-                idproveedor: Proveedor.idproveedor,
+                idproveedor: Proveedor.codigo,
                 nombre: Proveedor.nombre,
                 contacto: Proveedor.contacto
             }).then((response) => {

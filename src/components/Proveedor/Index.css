@@ -17,10 +17,10 @@
     width: 100px;
 }
 
-.modal {
-    width: 70% !important ; 
-    height:70% !important ; 
+.theadColor{
+    background-color: rgb(241, 199, 206);
 }
+
 
 .Descripcion-Actividad{
     text-align: left;

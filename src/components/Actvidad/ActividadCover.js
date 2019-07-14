@@ -18,7 +18,8 @@ class ActividadCover extends Component {
                 className="ActividadDetailCover-img"
                 alt="avatar"/>
                 <div> 
-                    <h5 className="ActividadCover-name">Actividades</h5> 
+                    <br/>
+                    <h5 className="ActividadCover-name">ACTIVIDADES</h5> 
                 </div>   
             </div>
         );

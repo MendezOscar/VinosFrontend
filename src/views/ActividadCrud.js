@@ -2,24 +2,38 @@ import React, { Component } from 'react';
 import Navbar from '../components/NavBar/Navbar'
 import ActividadBody from '../components/Actvidad/ActividadBody'
 import ActividadCover from '../components/Actvidad/ActividadCover'
-import ActividadPost from '../components/Actvidad/ActividadPost'
-import TableHeader from '../components/Actvidad/TableHeader'
+import { Redirect } from 'react-router';
+import './index.css'
+//import ActividadPost from '../components/Actvidad/ActividadPost'
 
 class ActividadCrud extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            isRedirected: false
+        }
+        this.onClick = this.onClick.bind(this);
+    }
+
+    onClick(e) {
+        return (<Redirect to="/crearactividad"></Redirect>);
+    }
+
     render() {
         return (
             <div>
-                <Navbar/>
-                <ActividadCover/>
-                <div className="row">
-                    <div className="col s12 m7">
-                        <TableHeader/>
-                        <ActividadBody/>
-                    </div>
-                    <div className="col s12 m4 l2">
-                        <ActividadPost/>
-                    </div>
+                <Navbar />
+                <ActividadCover />
+                <br />
+                <div className="left">
+                    <a className="btnCreate" href="/crearactividad" role="button">Crear nueva actividad</a>
                 </div>
+                <br />
+                <div className="container">
+                    <ActividadBody />
+                </div>
+
             </div>
         );
     }

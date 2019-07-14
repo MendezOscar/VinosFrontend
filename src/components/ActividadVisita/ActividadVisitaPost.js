@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { postProducto } from '../../actions/Producto'
-import ProductoCover from '../Producto/ProductoCover'
+import { postActividadVisita } from '../../actions/ActividadVisita'
+import ActividadCover from '../Actvidad/ActividadCover'
 import NavBar from '../NavBar/Navbar'
 import { Redirect } from 'react-router';
 
-
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        postProducto
+        postActividadVisita
     }, dispatch)
 }
 
-class ProductoPost extends Component {
+class ActividadVisitaPost extends Component {
 
     constructor(props) {
         super(props);
@@ -29,39 +28,43 @@ class ProductoPost extends Component {
 
     submitFormHandler = (e) => {
         e.preventDefault();
-        const codigo = this.refs.codigo.value;
-        const nombre = this.refs.nombre.value;
-        const producto = {
-            codigo,
-            nombre,
+        const actividadvisita = this.refs.actividadvisita.value;
+        const idactividad = this.refs.idactividad.value;
+        const idvisita = this.refs.idvisita.value;
+        const ActividadVisita = {
+            actividadvisita,
+            idactividad,
+            idvisita,
         }
-        this.props.postProducto(producto);
+        this.props.postActividadVisita(ActividadVisita);
     }
-
-
 
     render() {
         if (this.state.isRedirected) {
             return (
-                <Redirect to={"/producto"} />
+                <Redirect to={"/detail/" + this.refs.idvisita.value} />
             );
         }
         return (
             <div>
                 <NavBar />
-                <ProductoCover />
+                <ActividadCover />
                 <br />
                 <div className="container">
                     <form>
 
                         <div className="row">
                             <div className="col">
-                                <label className="left">Codigo</label>
-                                <input type="text" className="form-control" placeholder="Codigo" ref="codigo" />
+                                <label className="left">Codigo de actividad visita</label>
+                                <input type="text" className="form-control" placeholder="Codigo de actividad visita" ref="actividadvisita" />
                             </div>
                             <div className="col">
-                                <label className="left">Nombre</label>
-                                <input type="text" className="form-control" placeholder="Nombre" ref="nombre" />
+                                <label className="left">Codigo de la actividad</label>
+                                <input type="text" className="form-control" placeholder="Codigo de la actividad" ref="idactividad" />
+                            </div>
+                            <div className="col">
+                                <label className="left">Codigo de la visita</label>
+                                <input type="text" className="form-control" placeholder="Codigo de la visita" ref="idvisita" />
                             </div>
                         </div>
 
@@ -82,4 +85,4 @@ class ProductoPost extends Component {
 export default connect(
     null,
     mapDispatchToProps
-)(ProductoPost);
+)(ActividadVisitaPost);

@@ -23,3 +23,29 @@ export const postActividad = (state = [], action) => {
             return state;
     }
 }
+
+export const getActividadById = (state = [], action) => {
+    switch (action.type) {
+        case 'START_GET_ACTIVIDAD_BY_ID':
+            return action;
+        case 'COMPLETE_GET_ACTIVIDAD_BY_ID':
+            return action;
+        case 'ERROR_GET_ACTIVIDAD_BY_ID':
+            return action;
+        default:
+            return state;
+    }
+}
+
+export const deleteActividad = (state = [], action) => {
+    switch (action.type) {
+        case 'START_DELETE_ACTIVIDAD':
+            return action;
+        case 'COMPLETE_DELETE_ACTIVIDAD':
+            return action;
+        case 'ERROR_GET_DELETE_ACTIVIDAD':
+            return action;
+        default:
+            return state;
+    }
+}

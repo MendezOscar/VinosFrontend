@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Navbar from '../components/NavBar/Navbar'
 import ProveedorCover from '../components/Proveedor/ProveedorCover'
 import ProveddorBody from '../components/Proveedor/ProveedorBody'
-import ProveedorTableHeader from '../components/Proveedor/ProveedorTableHeader'
 
 class Proveedor extends Component {
     render() {
@@ -10,11 +9,13 @@ class Proveedor extends Component {
             <div>
                 <Navbar />
                 <ProveedorCover />
-                <div className="row">
-                    <div className="col s12 m6">
-                        <ProveedorTableHeader />
-                        <ProveddorBody />
-                    </div>
+                <br />
+                <div className="left">
+                    <a className="btnCreate" href="/crearproveedor" role="button">Crear nuevo proveedor</a>
+                </div>
+                <br />
+                <div className="container">
+                    <ProveddorBody />
                 </div>
             </div>
         );

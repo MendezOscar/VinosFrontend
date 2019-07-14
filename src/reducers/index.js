@@ -1,13 +1,15 @@
 import { combineReducers } from 'redux';
 import { getVisitas, getVisitaById } from './VisitasReducer';
-import { getActividades, postActividad } from './ActividadReducer'
+import { getActividades, postActividad, getActividadById, deleteActividad } from './ActividadReducer'
 import { getEmpleados, postEmpleado } from './EmpleadoReducer'
 import { getFincas, postFinca } from './FincaReducer'
-import { getProductos, postProducto } from './ProductoReducer'
+import { getProductos, postProducto, getProductoById } from './ProductoReducer'
 import { getProveedores, postProveedor } from './ProveedorReducer'
 import { getMateriaprima, postMateriaprima } from './Materiaprima'
 import { getInventario, postInventario } from './InventarioReducer'
 import { getOrdendeproduccion } from './OrdendeproduccionReducer'
+import { getActividadVisita, postActividadVisita } from './ActividadVisitaReducer'
+import { getPersonalVisita, postPersonalVisita } from './PersonalVisitaReducer'
 
 export default combineReducers({
     getVisitas,
@@ -15,8 +17,11 @@ export default combineReducers({
 
     getActividades,
     postActividad,
+    getActividadById,
+    deleteActividad,
 
     getEmpleados,
+    getProductoById,
     postEmpleado,
 
     getFincas,
@@ -35,4 +40,10 @@ export default combineReducers({
     postInventario,
 
     getOrdendeproduccion,
+
+    getActividadVisita,
+    postActividadVisita,
+
+    getPersonalVisita,
+    postPersonalVisita,
 });

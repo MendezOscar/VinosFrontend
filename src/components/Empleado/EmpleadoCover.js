@@ -18,6 +18,7 @@ class EmpleadoCover extends Component {
                         src={this.state.cover}
                         className="EmpleadoDetailCover-img"
                         alt="avatar" />
+                    <br/>
                     <div>
                         <h5 className="EmpleadoCover-name">Empleados</h5>
                     </div>

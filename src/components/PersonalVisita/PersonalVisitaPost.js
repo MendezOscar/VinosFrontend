@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { postProducto } from '../../actions/Producto'
-import ProductoCover from '../Producto/ProductoCover'
+import { postPersonalVisita } from '../../actions/PersonalVisita'
+import EmpleadoCover from '../Empleado/EmpleadoCover'
 import NavBar from '../NavBar/Navbar'
 import { Redirect } from 'react-router';
 
-
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        postProducto
+        postPersonalVisita
     }, dispatch)
 }
 
-class ProductoPost extends Component {
+class PersonalVisitaPost extends Component {
 
     constructor(props) {
         super(props);
@@ -29,39 +28,43 @@ class ProductoPost extends Component {
 
     submitFormHandler = (e) => {
         e.preventDefault();
-        const codigo = this.refs.codigo.value;
-        const nombre = this.refs.nombre.value;
-        const producto = {
-            codigo,
-            nombre,
+        const idpersonalvisita = this.refs.idpersonalvisita.value;
+        const idempleado = this.refs.idempleado.value;
+        const idvisita = this.refs.idvisita.value;
+        const personalvisita = {
+            idpersonalvisita,
+            idempleado,
+            idvisita,
         }
-        this.props.postProducto(producto);
+        this.props.postPersonalVisita(personalvisita);
     }
-
-
 
     render() {
         if (this.state.isRedirected) {
             return (
-                <Redirect to={"/producto"} />
+                <Redirect to={"/detail/" + this.refs.idvisita.value} />
             );
         }
         return (
             <div>
                 <NavBar />
-                <ProductoCover />
+                <EmpleadoCover />
                 <br />
                 <div className="container">
                     <form>
 
                         <div className="row">
                             <div className="col">
-                                <label className="left">Codigo</label>
-                                <input type="text" className="form-control" placeholder="Codigo" ref="codigo" />
+                                <label className="left">Codigo de personal visita</label>
+                                <input type="text" className="form-control" placeholder="Codigo de actividad visita" ref="idpersonalvisita" />
                             </div>
                             <div className="col">
-                                <label className="left">Nombre</label>
-                                <input type="text" className="form-control" placeholder="Nombre" ref="nombre" />
+                                <label className="left">Codigo de la empleado</label>
+                                <input type="text" className="form-control" placeholder="Codigo del empleado" ref="idempleado" />
+                            </div>
+                            <div className="col">
+                                <label className="left">Codigo de la visita</label>
+                                <input type="text" className="form-control" placeholder="Codigo de la visita" ref="idvisita" />
                             </div>
                         </div>
 
@@ -82,4 +85,4 @@ class ProductoPost extends Component {
 export default connect(
     null,
     mapDispatchToProps
-)(ProductoPost);
+)(PersonalVisitaPost);

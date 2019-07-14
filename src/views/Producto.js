@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Navbar from '../components/NavBar/Navbar'
 import ProductoCover from '../components/Producto/ProductoCover'
 import ProductoBody from '../components/Producto/ProductoBody'
-import ProductoTableHeader from '../components/Producto/ProductoTableHeader'
 
 class Producto extends Component {
     render() {
@@ -10,11 +9,13 @@ class Producto extends Component {
             <div>
                 <Navbar />
                 <ProductoCover />
-                <div className="row">
-                    <div className="col s12 m6">
-                        <ProductoTableHeader />
-                        <ProductoBody />
-                    </div>
+                <br />
+                <div className="left">
+                    <a className="btnCreate" href="/crearproducto" role="button">Crear nuevo producto</a>
+                </div>
+                <br />
+                <div className="container">
+                    <ProductoBody />
                 </div>
             </div>
         );

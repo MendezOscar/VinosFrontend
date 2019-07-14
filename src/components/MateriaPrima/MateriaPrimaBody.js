@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getMateriaprima } from '../../actions/Materiaprima';
-import MateriaprimaItem from '../MateriaPrima/MateriaprimaItem'
 
 function mapStateToPropos(state) {
     return {
@@ -27,19 +26,42 @@ class MateriaPrimaBody extends Component {
         if (this.props.materiaprima.data) {
             materiaprima = this.props.materiaprima.data.map((currentValue, index, array) => {
                 return (
-                    <MateriaprimaItem
-                        key={index}
-                        idmateriaprima={currentValue.idmateriaprima}
-                        nombre={currentValue.nombre}
-                        descripcion={currentValue.descripcion}
-                        idproveedor={currentValue.idproveedor}/>
+                    <tr key={index} bgcolor="#ffffff">
+                    <td>{currentValue.idmateriaprima}</td>
+                    <td className="">{currentValue.nombre}</td>
+                    <td className="">{currentValue.descripcion}</td>
+                    <td className="">{currentValue.idproveedor}</td>
+                    <td>
+                        <div className="btn-group" role="group">
+                            <button type="button" className="btn btn-info">
+                                <i className="fa fa-pencil"></i>
+                            </button>
+                            <button onClick={this.borrarActividad} type="button" className="btn btn-danger">
+                                <i className="fa fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
                 );
             })
         }
         return (
             <div>
-                {materiaprima}
-            </div>
+            <table className="table table-hover">
+                <thead className="theadColor">
+                    <tr>
+                        <th scope="col">Codigo</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Proveedor</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {materiaprima}
+                </tbody>
+            </table>
+        </div>
         );
     }
 }

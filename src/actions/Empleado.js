@@ -28,12 +28,12 @@ export const postEmpleado = (Empleado) => {
         dispatch(startPostEmpleado());
         http.post('/api/empleado',
             {
-                idactividad: Empleado.Idempleado,
-                nombre: Empleado.Nombre,
-                apellido: Empleado.Apellido,
-                edad: Empleado.Edad,
-                fechanacimiento: Empleado.Fechanacimiento,
-                cargo:  Empleado.Cargo
+                idempleado: Empleado.idempleado,
+                nombre: Empleado.nombre,
+                apellido: Empleado.apellido,
+                edad: Empleado.edad,
+                fechanacimiento: Empleado.fechanacimiento,
+                cargo:  Empleado.cargo
             }).then((response) => {
                 if (response.data) {
                     dispatch(completePostEmpleado(response.data));

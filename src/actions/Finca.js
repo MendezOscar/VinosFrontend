@@ -13,7 +13,6 @@ export const getFincas = () => {
         dispatch(startGetFincas());
         http.get('/api/Finca').then((response) => {
             if (response.data) {
-                console.log(response.data);
                 dispatch(completeGetFincas(response.data));
             }
         })
@@ -29,12 +28,12 @@ export const postFinca = (Finca) => {
         dispatch(startPostFinca());
         http.post('/api/Finca',
             {
-                idfinca: Finca.IdFinca,
-                nombre: Finca.Nombre,
-                direccion: Finca.Direccion,
-                dueno: Finca.Dueno,
-                contacto: Finca.Contacto,
-                idproducto:  Finca.IdProducto
+                idfinca: Finca.idfinca,
+                nombre: Finca.nombre,
+                direccion: Finca.direccion,
+                dueno: Finca.dueno,
+                contacto: Finca.contacto,
+                idproducto:  Finca.idproducto
             }).then((response) => {
                 if (response.data) {
                     dispatch(completePostFinca(response.data));

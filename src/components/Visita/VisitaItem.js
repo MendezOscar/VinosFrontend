@@ -12,33 +12,26 @@ class VisitaItem extends Component {
         this.onClick = this.onClick.bind(this);
     }
 
-    onClick(e){
-        this.setState({isRedirected:true});
+    onClick(e) {
+        this.setState({ isRedirected: true });
     }
-    
+
 
     render() {
-        const {descripcion, fecha, numero, titulo, id} = this.props;
-        if(this.state.isRedirected){
-            return(
-                <Redirect to={"detail/" + id}/>
+        const { descripcion, fecha, titulo, id } = this.props;
+        var url = "detail/" + id;
+        if (this.state.isRedirected) {
+            return (
+                <Redirect to={"detail/" + id} />
             );
         }
         return (
-            <div>
-                <div className="col s6 m4">
-                    <div className="card blue-grey darken-1">
-                    <div className="card-content white-text">
-                    <span className="card-title">{titulo}</span>
-                    <p align="left"> {descripcion}
-                    </p>
-                    <p align="left"> Fecha de visita : {fecha.substring(0,10)}</p>
-                    <p align="left"> Numero de visita: {numero}</p>
-                    </div>
-                    <div className="card-action">
-                    <a onClick={ this.onClick }>Ver detalle</a>
-                    </div>
-                </div>
+            <div className="card" >
+                <div className="card-body">
+                    <h5 className="card-title">{titulo}</h5>
+                    <h6 className="card-title">{fecha.substring(0,10)}</h6>
+                    <p className="card-text">{descripcion}</p>
+                    <a href={url} className="card-link" >Ver Detalle</a>
                 </div>
             </div>
         );

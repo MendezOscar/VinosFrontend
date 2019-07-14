@@ -17,11 +17,15 @@
     width: 100px;
 }
 
-.modal {
-    width: 70% !important ; 
-    height:70% !important ; 
-}
 
 .Descripcion-Actividad{
     text-align: left;
+}
+
+.EmpleadoCover-name{
+    color: white;
+}
+
+.theadColor{
+    background-color: rgb(241, 199, 206);
 }

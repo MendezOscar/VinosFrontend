@@ -18,6 +18,7 @@ class VisitaDetailCover extends Component {
                 src={this.state.cover} 
                 className="VisitaDetailCover-img"
                 alt="avatar"/>
+                <br/>
                 <div> 
                     <h5 className="UserDetailCover-name">{ titulo }</h5> 
                 </div>   
