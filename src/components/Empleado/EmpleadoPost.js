@@ -67,12 +67,12 @@ class EmpleadoPost extends Component {
                             <input type="text" className="form-control" ref="codigo" placeholder="Codigo" />
                         </div>
 
-                        <div class="row">
-                            <div class="col">
+                        <div className="row">
+                            <div className="col">
                                 <label className="left">Nombre</label>
                                 <input type="text" className="form-control" placeholder="Nombre" ref="nombre" />
                             </div>
-                            <div class="col">
+                            <div className="col">
                                 <label className="left">Apellido</label>
                                 <input type="text" className="form-control" placeholder="Apellido" ref="apellido" />
                             </div>

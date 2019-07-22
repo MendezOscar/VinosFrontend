@@ -17,11 +17,18 @@
     width: 100px;
 }
 
-.modal {
-    width: 70% !important ; 
-    height:70% !important ; 
-}
-
 .Descripcion-Actividad{
     text-align: left;
+}
+
+.BlueColor{
+    background-color: #33b5e5;
+}
+
+.GreenColor{
+    background-color: #00C851;
+}
+
+.YelowColor{
+    background-color: #ffff8d;
 }

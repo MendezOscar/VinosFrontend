@@ -32,6 +32,7 @@ export const getVisitaById = (visita) => {
         dispatch(startGetVisitaById());
         http.get('/api/Visita/' + visita).then((response) => {
             if (response.data) {
+                console.log(response.data);
                 dispatch(completeGetVisitaById(response.data));
             }
         })

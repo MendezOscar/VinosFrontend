@@ -4,6 +4,10 @@ const startGetOrdendeproduccion  = () => { return { type: 'START_GET_ORDENDEPROD
 const completeGetOrdendeproduccion  = (data) => { return { type: 'COMPLETE_GET_ORDENDEPRODUCCION', data } }
 const errorGetOrdendeproduccion  = (err) => { return { type: 'ERROR_GET_ORDENDEPRODUCCION', err } }
 
+const startGetOrdenProduccionById = () => { return { type: 'START_GET_ORDENPRODUCCION_BY_ID', ready: false } }
+const completeGetOrdenProduccionById = (data) => { return { type: 'COMPLETE_GET_ORDENPRODUCCION_BY_ID', data } }
+const errorGetOrdenProduccionById = (err) => { return { type: 'ERROR_GET_ORDENPRODUCCION_BY_ID', err } }
+
 export const getOrdendeproduccion = () => {
     return (dispatch) => {
         dispatch(startGetOrdendeproduccion());
@@ -15,6 +19,21 @@ export const getOrdendeproduccion = () => {
             .catch((err) => {
                 console.log(err);
                 dispatch(errorGetOrdendeproduccion(err));
+            })
+    }
+}
+
+export const getOrdenProduccionById = (orden) => {
+    return (dispatch) => {
+        dispatch(startGetOrdenProduccionById());
+        http.get('/api/Ordendeproduccion/' + orden).then((response) => {
+            if (response.data) {
+                dispatch(completeGetOrdenProduccionById(response.data));
+            }
+        })
+            .catch((err) => {
+                console.log(err);
+                dispatch(errorGetOrdenProduccionById(err));
             })
     }
 }

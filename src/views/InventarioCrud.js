@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Navbar from '../components/NavBar/Navbar'
 import InventarioCover from '../components/Inventario/InventarioCover'
 import InvenatrioBody from '../components/Inventario/InventarioBody'
-import InventarioTableHeader from '../components/Inventario/InventarioTableHeader'
 
 class InventarioCrud extends Component {
     render() {
@@ -10,11 +9,13 @@ class InventarioCrud extends Component {
             <div>
                 <Navbar />
                 <InventarioCover />
-                <div className="row">
-                    <div className="col s12 m6">
-                        <InventarioTableHeader />
-                        <InvenatrioBody />
-                    </div>
+                <br/>
+                <div className="left">
+                    <a className="btnCreate" href="/crearinventario" role="button">Crear nueva transaccion para inventario</a>
+                </div>
+                <br />
+                <div className="container">
+                    <InvenatrioBody />
                 </div>
             </div>
         );

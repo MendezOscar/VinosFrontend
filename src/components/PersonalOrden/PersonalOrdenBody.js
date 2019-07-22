@@ -1,31 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getPersonalVisita } from '../../actions/PersonalVisita';
+import { getPersonalOrden } from '../../actions/PersonalOrden';
 
 function mapStateToPropos(state) {
     return {
-        personalvisita: state.getPersonalVisita
+        personalOrden: state.getPersonalOrden
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        getPersonalVisita
+        getPersonalOrden
     }, dispatch)
 }
 
-class PersonalVisitaBody extends Component {
+
+class PersonalOrdenBody extends Component {
 
     componentWillMount() {
-        this.props.getPersonalVisita();
+        this.props.getPersonalOrden();
     }
 
     render() {
-        let personalVisita = [];
-        if (this.props.personalvisita.data) {
-            personalVisita = this.props.personalvisita.data.map((currentValue, index, array) => {
-                if (currentValue.idvisita === this.props.idvisita) {
+        let personalOrden = [];
+        if (this.props.personalOrden.data) {
+            personalOrden = this.props.personalOrden.data.map((currentValue, index, array) => {
+                if (currentValue.idorden === this.props.idorden) {
                     return (
                         <tr key={index} bgcolor="#ffffff">
                             <td className="">{currentValue.idempleado}</td>
@@ -55,7 +56,7 @@ class PersonalVisitaBody extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {personalVisita}
+                        {personalOrden}
                     </tbody>
                 </table>
             </div>
@@ -66,4 +67,4 @@ class PersonalVisitaBody extends Component {
 export default connect(
     mapStateToPropos,
     mapDispatchToProps
-)(PersonalVisitaBody);
+)(PersonalOrdenBody);

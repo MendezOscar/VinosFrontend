@@ -13,7 +13,6 @@ export const getActividadVisita = () => {
         dispatch(startGetActividadVisita());
         http.get('/api/Actividadvisita').then((response) => {
             if (response.data) {
-                console.log(response.data);
                 dispatch(completeGetActividadVisita(response.data));
             }
         })
@@ -34,7 +33,6 @@ export const postActividadVisita = (ActividadVisita) => {
                 idvisita: ActividadVisita.idvisita
             }).then((response) => {
                 if (response.data) {
-                    console.log(ActividadVisita.actividadvisita);
                     dispatch(completePostActividadVisita(response.data));
                 }
             })

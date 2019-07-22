@@ -28,12 +28,12 @@ export const postInventario = (Inventario) => {
         dispatch(startPostInventario());
         http.post('/api/Kardex',
             {
-                idkardex: Inventario.Idkardex,
-                fecha: Inventario.Fecha,
-                transaccion: Inventario.Transaccion,
-                cantidad: Inventario.Cantidad,
+                idkardex: Inventario.idkardex,
+                fecha: Inventario.fecha,
+                transaccion: Inventario.transaccion,
+                cantidad: Inventario.cantidad,
                 item: Inventario.item,
-                motivo:  Inventario.Motivo
+                motivo:  Inventario.motivo
             }).then((response) => {
                 if (response.data) {
                     dispatch(completePostInventario(response.data));

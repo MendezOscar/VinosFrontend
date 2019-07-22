@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router';
+import './index.css'
 
 class VisitaItem extends Component {
 
@@ -18,21 +19,35 @@ class VisitaItem extends Component {
 
 
     render() {
-        const { descripcion, fecha, titulo, id } = this.props;
-        var url = "detail/" + id;
+        const { descripcion, fecha, titulo, id, estado } = this.props;
+        let estilo;
+        var url = "detailvisita/" + id;
         if (this.state.isRedirected) {
             return (
-                <Redirect to={"detail/" + id} />
+                <Redirect to={"detailvisita/" + id} />
             );
         }
+        if(estado === "Nueva"){
+            estilo = "BlueColor"
+        }else if(estado === "En proceso"){
+            estilo = "GreenColor"
+        }else if(estado === "Finalizada"){
+            estilo = "YelowColor"
+        }
         return (
-            <div className="card" >
-                <div className="card-body">
-                    <h5 className="card-title">{titulo}</h5>
-                    <h6 className="card-title">{fecha.substring(0,10)}</h6>
-                    <p className="card-text">{descripcion}</p>
-                    <a href={url} className="card-link" >Ver Detalle</a>
+            <div className="container">
+                <div className="card">
+                    <div className="card-header">
+                        {titulo}
+                    </div>
+                    <div className="card-body">
+                        <h5 className="card-title">{descripcion}</h5>
+                        <h5 className={estilo}>{estado}</h5>
+                        <p className="card-text">{fecha.substring(0, 10)}</p>
+                        <a href={url} className="btn btn-primary">Ver detalle</a>
+                    </div>
                 </div>
+                <br />
             </div>
         );
     }

@@ -21,3 +21,15 @@
     width: 70% !important ; 
     height: 70% !important ; 
 }
+
+.BlueColor{
+    background-color: #33b5e5;
+}
+
+.GreenColor{
+    background-color: #00C851;
+}
+
+.YelowColor{
+    background-color: #ffff8d;
+}

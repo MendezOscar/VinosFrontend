@@ -19,6 +19,10 @@ import ProveedorPost from './components/Proveedor/ProveedorPost';
 import MateriaPrimaPost from './components/MateriaPrima/MateriaprimaPost'
 import ActividadVisitaPost from './components/ActividadVisita/ActividadVisitaPost'
 import PersonalVisitaPost from './components/PersonalVisita/PersonalVisitaPost'
+import MateriaPrimaOrdenPost from './components/MateriaPrimaOrden/MateriaPrimaOrdenPost'
+import PersonalOrdenPost from './components/PersonalOrden/PersonalOrdenPost'
+import InventarioPost from './components/Inventario/InventarioPost'
+import OrdenDetail from './views/OrdenDetail'
 import PropTypes from 'prop-types'
 import './App.css';
 
@@ -29,7 +33,7 @@ class App extends Component {
       <Router history = { this.props.history }>
         <div className="App">
           <Route exact path="/Home" component={Home}/>
-          <Route path="/detail/:visitaId" component={VisitaDetail}/>
+          <Route path="/detailvisita/:visitaId" component={VisitaDetail}/>
           <Route path="/Actividades" component={ ActividadCrud }/>
           <Route path="/Empleado" component={ EmpleadoCrud }/>
           <Route path="/Finca" component={ FincaCrud }/>
@@ -47,7 +51,10 @@ class App extends Component {
           <Route path="/crearmateriaprima" component={ MateriaPrimaPost }/>
           <Route path="/crearactividadvisita" component={ ActividadVisitaPost }/>
           <Route path="/crearpersonalvisita" component={ PersonalVisitaPost }/>
-
+          <Route path="/detailorden/:ordenId" component={OrdenDetail}/>
+          <Route path="/crearmateriaprimaorden" component={MateriaPrimaOrdenPost}/>
+          <Route path="/crearpersonalorden" component={PersonalOrdenPost}/>
+          <Route path="/crearinventario" component={InventarioPost}/>
         </div>
       </Router>
    );

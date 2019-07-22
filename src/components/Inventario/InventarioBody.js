@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getInventario } from '../../actions/Inventario';
-import InventarioItem from '../Inventario/InventarioItem'
 
 function mapStateToPropos(state) {
     return {
@@ -26,28 +25,52 @@ class InventarioBody extends Component {
         if (this.props.inventario.data) {
             inventario = this.props.inventario.data.map((currentValue, index, array) => {
                 return (
-                    <InventarioItem
-                        key={index}
-                        idkardex ={currentValue.idkardex}
-                        fecha={currentValue.fecha}
-                        transaccion={currentValue.transaccion}
-                        cantidad={currentValue.cantidad}
-                        item = {currentValue.item}
-                        motivo = { currentValue.motivo }
-                        />
+                    <tr key={index} bgcolor="#ffffff">
+                        <td>{currentValue.idkardex}</td>
+                        <td className="text-center">{currentValue.fecha.substring(0,10)}</td>
+                        <td className="text-center">{currentValue.transaccion}</td>
+                        <td className="text-center">{currentValue.cantidad}</td>
+                        <td className="text-center">{currentValue.item}</td>
+                        <td className="text-center">{currentValue.motivo}</td>
+                        <td>
+                            <div className="btn-group" role="group">
+                                <button type="button" className="btn btn-info">
+                                    <i className="fa fa-pencil"></i>
+                                </button>
+                                <button onClick={this.borrarActividad} type="button" className="btn btn-danger">
+                                    <i className="fa fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
                 );
             })
         }
 
         return (
             <div>
-                {inventario}
+                <table className="table table-hover">
+                    <thead className="theadColor">
+                        <tr>
+                            <th scope="col">Codigo</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Transaccion</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Item</th>
+                            <th scope="col">Motivo</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {inventario}
+                    </tbody>
+                </table>
             </div>
         );
     }
 }
 
-export default connect (
+export default connect(
     mapStateToPropos,
     mapDispatchToProps
 )(InventarioBody);

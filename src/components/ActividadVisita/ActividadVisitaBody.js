@@ -26,21 +26,24 @@ class ActividadVisitaBody extends Component {
         let actividadVisita = [];
         if (this.props.actividadvisita.data) {
             actividadVisita = this.props.actividadvisita.data.map((currentValue, index, array) => {
-                return (
-                    <tr key={index} bgcolor="#ffffff">
-                        <td className="">{currentValue.idactividad}</td>
-                        <td>
-                            <div className="btn-group" role="group">
-                                <button type="button" className="btn btn-info">
-                                    <i className="fa fa-pencil"></i>
-                                </button>
-                                <button onClick={this.borrarActividad} type="button" className="btn btn-danger">
-                                    <i className="fa fa-trash"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                );
+                if (currentValue.idvisita === this.props.idvisita) {
+                    return (
+                        <tr key={index} bgcolor="#ffffff">
+                            <td className="">{currentValue.idactividad}</td>
+                            <td>
+                                <div className="btn-group" role="group">
+                                    <button type="button" className="btn btn-info">
+                                        <i className="fa fa-pencil"></i>
+                                    </button>
+                                    <button onClick={this.borrarActividad} type="button" className="btn btn-danger">
+                                        <i className="fa fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    );
+                }
+                return false;
             })
         }
         return (

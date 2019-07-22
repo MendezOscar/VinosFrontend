@@ -6,49 +6,50 @@ import { getVisitaById } from '../actions'
 import VisitaDetailCover from '../components/Visita/VisitaDetailCover'
 import VisitaDetailBody from '../components/Visita/VisitaDetailBody'
 
-function mapStateToPropos(state){
+function mapStateToPropos(state) {
     return {
         visitaDetail: state.getVisitaById
     }
 }
 
-function mapDispatchToProps (dispatch){
+function mapDispatchToProps(dispatch) {
     return bindActionCreators({
         getVisitaById
     }, dispatch)
-} 
+}
 
 
 class VisitaDetail extends Component {
     componentWillMount() {
         this.props.getVisitaById(this.props.match.params.visitaId);
     }
-    
+
     render() {
-        if(this.props.visitaDetail.data){
-            const { titulo, descripcion, fecha, numero, idfinca, idvisita } = this.props.visitaDetail.data;
-            return(
+        if (this.props.visitaDetail.data) {
+            const { titulo, descripcion, fecha, numero, idfinca, idvisita, estado } = this.props.visitaDetail.data;
+            return (
                 <div>
-                    <Navbar/>
-                    <VisitaDetailCover titulo = { titulo }/>
-                    <VisitaDetailBody 
-                     descripcion = { descripcion }
-                     fecha = { fecha }
-                     numero = { numero }
-                     idfinca = { idfinca }
-                     idvisita = { idvisita }
+                    <Navbar />
+                    <VisitaDetailCover titulo={titulo} />
+                    <VisitaDetailBody
+                        descripcion={descripcion}
+                        fecha={fecha}
+                        numero={numero}
+                        idfinca={idfinca}
+                        idvisita={idvisita}
+                        estado={estado}
                     />
                 </div>
             );
         }
-        return(
-        <div>
-        </div>
-        );  
+        return (
+            <div>
+            </div>
+        );
     }
 }
 
-export default connect (
+export default connect(
     mapStateToPropos,
     mapDispatchToProps
 )(VisitaDetail);

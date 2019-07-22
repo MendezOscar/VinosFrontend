@@ -1,34 +1,35 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getPersonalVisita } from '../../actions/PersonalVisita';
+import { getMateriaPrimaOrden } from '../../actions/MateriaPrimaOrden';
 
 function mapStateToPropos(state) {
     return {
-        personalvisita: state.getPersonalVisita
+        materiaPrimaOrden: state.getMateriaPrimaOrden
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        getPersonalVisita
+        getMateriaPrimaOrden
     }, dispatch)
 }
 
-class PersonalVisitaBody extends Component {
+
+class MateriaPrimaOrdenBody extends Component {
 
     componentWillMount() {
-        this.props.getPersonalVisita();
+        this.props.getMateriaPrimaOrden();
     }
 
     render() {
-        let personalVisita = [];
-        if (this.props.personalvisita.data) {
-            personalVisita = this.props.personalvisita.data.map((currentValue, index, array) => {
-                if (currentValue.idvisita === this.props.idvisita) {
+        let materiaPrimaOrden = [];
+        if (this.props.materiaPrimaOrden.data) {
+            materiaPrimaOrden = this.props.materiaPrimaOrden.data.map((currentValue, index, array) => {
+                if (currentValue.idorden === this.props.idorden) {
                     return (
                         <tr key={index} bgcolor="#ffffff">
-                            <td className="">{currentValue.idempleado}</td>
+                            <td className="">{currentValue.idmateriaprima}</td>
                             <td>
                                 <div className="btn-group" role="group">
                                     <button type="button" className="btn btn-info">
@@ -50,12 +51,12 @@ class PersonalVisitaBody extends Component {
                 <table className="table table-hover">
                     <thead className="theadColor">
                         <tr>
-                            <th scope="col">Personal</th>
+                            <th scope="col">Materia Prima</th>
                             <th scope="col">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {personalVisita}
+                        {materiaPrimaOrden}
                     </tbody>
                 </table>
             </div>
@@ -66,4 +67,4 @@ class PersonalVisitaBody extends Component {
 export default connect(
     mapStateToPropos,
     mapDispatchToProps
-)(PersonalVisitaBody);
+)(MateriaPrimaOrdenBody);

@@ -4,7 +4,6 @@ import ActividadBody from '../components/Actvidad/ActividadBody'
 import ActividadCover from '../components/Actvidad/ActividadCover'
 import { Redirect } from 'react-router';
 import './index.css'
-//import ActividadPost from '../components/Actvidad/ActividadPost'
 
 class ActividadCrud extends Component {
 

@@ -7,43 +7,36 @@ import { getProductos, postProducto, getProductoById } from './ProductoReducer'
 import { getProveedores, postProveedor } from './ProveedorReducer'
 import { getMateriaprima, postMateriaprima } from './Materiaprima'
 import { getInventario, postInventario } from './InventarioReducer'
-import { getOrdendeproduccion } from './OrdendeproduccionReducer'
+import { getOrdendeproduccion, getOrdenProduccionById } from './OrdendeproduccionReducer'
 import { getActividadVisita, postActividadVisita } from './ActividadVisitaReducer'
 import { getPersonalVisita, postPersonalVisita } from './PersonalVisitaReducer'
+import { getMateriaPrimaOrden, postMateriaPrimaOrden } from './MateriaPrimaOrdenReducer'
+import { getPersonalOrden, postPersonalOrden } from './PersonalOrdenReducer'
 
 export default combineReducers({
-    getVisitas,
-    getVisitaById,
+    getVisitas, getVisitaById,
 
-    getActividades,
-    postActividad,
-    getActividadById,
-    deleteActividad,
+    getActividades, postActividad, getActividadById, deleteActividad,
 
-    getEmpleados,
-    getProductoById,
-    postEmpleado,
+    getEmpleados, getProductoById, postEmpleado,
 
-    getFincas,
-    postFinca,
+    getFincas, postFinca,
 
-    getProductos,
-    postProducto,
+    getProductos, postProducto,
 
-    getProveedores,
-    postProveedor,
+    getProveedores, postProveedor,
 
-    getMateriaprima,
-    postMateriaprima,
+    getMateriaprima, postMateriaprima,
 
-    getInventario,
-    postInventario,
+    getInventario, postInventario,
 
-    getOrdendeproduccion,
+    getOrdendeproduccion, getOrdenProduccionById,
 
-    getActividadVisita,
-    postActividadVisita,
+    getActividadVisita, postActividadVisita,
 
-    getPersonalVisita,
-    postPersonalVisita,
+    getPersonalVisita, postPersonalVisita,
+
+    getMateriaPrimaOrden, postMateriaPrimaOrden,
+
+    getPersonalOrden, postPersonalOrden,
 });

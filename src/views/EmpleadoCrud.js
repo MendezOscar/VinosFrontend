@@ -18,7 +18,6 @@ class EmpleadoCrud extends Component {
                 <div className="container">
                     <EmpleadoBody />
                 </div>
-
             </div>
         );
     }
